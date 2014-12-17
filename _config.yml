@@ -1,0 +1,10 @@
+# Site settings
+title: Identificaatcie website
+email: identificaatcie@thalia.nu
+description: > # this means to ignore newlines until "baseurl:"
+  De Identificaatcie van Thalia is bezig met het introduceren van IRMA-kaarten
+  voor Studievereniging Thalia
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "https://identificaatcie.github.io" # the base hostname & protocol for your site
+github_username:  identificaatcie
+
