@@ -68,47 +68,48 @@ Het nadeel is dus wel dat Silvia alleen op Linux/OSX werkt en het enkel via de c
 ### Silvia installeren op Ubuntu 14.04
 Met onderstaande copy-paste tutorial is Silvia te installeren op Ubuntu 14.04. Deze tutorial is enkel getest op de 64-bit versie van Ubuntu, maar zal waarschijnlijk ook op de 32-bit versie moeten werken. Open een terminalvenster en voer de onderstaande commando's uit:
 
-Installeer eerste de vereiste software:
-```bash
+Installeer eerst de vereiste software:
+{% highlight bash %}
 $ sudo apt-get install --no-install-recommends build-essential git automake autoconf ca-certificates libtool pkg-config pcscd pcsc-tools libccid libifd-cyberjack6 libpcsclite-dev libcppunit-dev libxml++2.6-dev libgmp-dev libssl-dev
-```
+{% endhighlight %}
 
 Clone de repository met Silvia:
-```bash
+{% highlight bash %}
 $ git clone https://github.com/credentials/silvia
-```
+{% endhighlight %}
 
 Ga de map in:
-```bash
+{% highlight bash %}
 $ cd silvia
-```
+{% endhighlight %}
 
 Genereer een configure-script:
-```bash
+{% highlight bash %}
 $ ./autogen.sh
-```
+{% endhighlight %}
 
 Controlleer of je alle dependencies hebt en genereer een Makefile:
-```bash
+{% highlight bash %}
 $ ./configure
-```
+{% endhighlight %}
 
 Compileer Silvila:
-```bash
+{% highlight bash %}
 $ make
-```
+{% endhighlight %}
 
 Draai de unit tests om te kijken of alles goed is gegaan:
-```bash
+{% highlight bash %}
 $ make check
-```
+{% endhighlight %}
 
 (Optioneel) Installeer Silvia systeem-breed:
-```bash
+{% highlight bash %}
 $ sudo make install
-```
+{% endhighlight %}
 
 Als je silvia niet systeem-breed installeert, kun je in de map src/bin/ de binaries vinden van Silvia.
+
 Als je wel systeem-breed hebt ge&Iuml;nstalleert kun je nu silvia<TAB><TAB> typen, waarna de shell je de verschillende silvia-componenten laat zien.
 
 
