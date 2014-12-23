@@ -65,6 +65,53 @@ Silvia is een zeer krachtig commandline-programma, dat alle functionaliteit van 
 
 Het nadeel is dus wel dat Silvia alleen op Linux/OSX werkt en het enkel via de command line werkt.
 
+### Silvia installeren op Ubuntu 14.04
+Met onderstaande copy-paste tutorial is Silvia te installeren op Ubuntu 14.04. Deze tutorial is enkel getest op de 64-bit versie van Ubuntu, maar zal waarschijnlijk ook op de 32-bit versie moeten werken. Open een terminalvenster en voer de onderstaande commando's uit:
+
+Installeer eerste de vereiste software:
+```bash
+$ sudo apt-get install --no-install-recommends build-essential git automake autoconf ca-certificates libtool pkg-config pcscd pcsc-tools libccid libifd-cyberjack6 libpcsclite-dev libcppunit-dev libxml++2.6-dev libgmp-dev libssl-dev
+```
+
+Clone de repository met Silvia:
+```bash
+$ git clone https://github.com/credentials/silvia
+```
+
+Ga de map in:
+```bash
+$ cd silvia
+```
+
+Genereer een configure-script:
+```bash
+$ ./autogen.sh
+```
+
+Controlleer of je alle dependencies hebt en genereer een Makefile:
+```bash
+$ ./configure
+```
+
+Compileer Silvila:
+```bash
+$ make
+```
+
+Draai de unit tests om te kijken of alles goed is gegaan:
+```bash
+$ make check
+```
+
+(Optioneel) Installeer Silvia systeem-breed:
+```bash
+$ sudo make install
+```
+
+Als je silvia niet systeem-breed installeert, kun je in de map src/bin/ de binaries vinden van Silvia.
+Als je wel systeem-breed hebt ge&Iuml;nstalleert kun je nu silvia<TAB><TAB> typen, waarna de shell je de verschillende silvia-componenten laat zien.
+
+
 [Silvia is hier te vinden op Gihub][silvia]
 
 ## Broncode
