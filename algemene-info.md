@@ -110,7 +110,7 @@ $ sudo make install
 
 Als je silvia niet systeem-breed installeert, kun je in de map `src/bin/` de binaries vinden van Silvia.
 
-Als je wel systeem-breed hebt geïnstalleerd kun je nu `silvia`<kbd>tab</kbd><kbd>tab</kbd> typen, waarna de shell je de verschillende silvia-componenten laat zien.
+Als je wel systeem-breed hebt geïnstalleerd kun je nu `silvia` <kbd>tab</kbd> <kbd>tab</kbd> typen, waarna de shell je de verschillende silvia-componenten laat zien.
 
 
 [Silvia is hier te vinden op Gihub][silvia]
