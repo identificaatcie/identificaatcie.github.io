@@ -65,15 +65,28 @@ Silvia is een zeer krachtig commandline-programma, dat alle functionaliteit van 
 
 Het nadeel is dus wel dat Silvia alleen op Linux/OSX werkt en het enkel via de command line werkt.
 
-### Silvia installeren op Ubuntu 14.04
-Met onderstaande copy-paste tutorial is Silvia te installeren op Ubuntu 14.04. Deze tutorial is enkel getest op de 64-bit versie van Ubuntu, maar zal waarschijnlijk ook op de 32-bit versie moeten werken. Open een terminalvenster en voer de onderstaande commando's uit:
+### Silvia installeren
+Met onderstaande copy-paste tutorial is Silvia te installeren op zowel Ubuntu 14.04 als OSX. Voor Ubuntu tutorial is enkel getest op de 64-bit versie, maar zal waarschijnlijk ook op de 32-bit versie moeten werken. Voor OSX is deze tutorial enkel getest op OSX Lion, maar werkt waarschijnlijk ook op OSX Yosemite. 
 
-Installeer eerst de vereiste software:
+Open een terminalvenster en voer de onderstaande commando's uit.
+
+#### Vereiste software installeren (Ubuntu 14.04)
+Gebruikt apt-get om de vereiste software te installeren:
 {% highlight bash %}
 $ sudo apt-get install --no-install-recommends build-essential git automake autoconf ca-certificates libtool pkg-config pcscd pcsc-tools libccid libifd-cyberjack6 libpcsclite-dev libcppunit-dev libxml++2.6-dev libgmp-dev libssl-dev
 {% endhighlight %}
 
-Clone de repository met Silvia:
+
+#### Vereiste software installeren (OSX Lion)
+Op OSX moet je er eerst voor zorgen dat je [Homebrew][homebrew] geïnstalleerd hebt staan. Hiervoor heb je de [Apple developer tools][apple dev tools] voor nodig. Een handleiding hoe je dit moet installeren is te vinden op de [Github-pagina van Homebrew][homebrew github]. Als je `brew` werkende hebt kun je de voor Silvia vereiste software via de Terminal installeren:
+{% highlight bash %}
+$ brew install git automake autoconf libtool pkg-config cppunit gmp libxml++ libxml2
+{% endhighlight %}
+
+#### Silvia installeren
+Als de vereiste software geïnstalleerd is, is het installeren van Silvia vrij eenvoudig en gelijk voor OSX en Ubuntu.
+
+Clone eerst de repository met Silvia:
 {% highlight bash %}
 $ git clone https://github.com/credentials/silvia
 {% endhighlight %}
@@ -90,7 +103,7 @@ $ ./autogen.sh
 
 Controlleer of je alle dependencies hebt en genereer een Makefile:
 {% highlight bash %}
-$ ./configure
+$ ./configure --prefix=/usr/local
 {% endhighlight %}
 
 Compileer Silvila:
@@ -105,15 +118,14 @@ $ make check
 
 (Optioneel) Installeer Silvia systeem-breed:
 {% highlight bash %}
-$ sudo make install
+$ sudo make install # Op OSX is sudo hier niet nodig
 {% endhighlight %}
 
-Als je silvia niet systeem-breed installeert, kun je in de map `src/bin/` de binaries vinden van Silvia.
+Als je Silvia niet systeem-breed installeert, kun je in de map `src/bin/` de binaries vinden van Silvia.
 
-Als je wel systeem-breed hebt geïnstalleerd kun je nu `silvia` <kbd>tab</kbd> <kbd>tab</kbd> typen, waarna de shell je de verschillende silvia-componenten laat zien.
+Als je Silvia wel systeem-breed hebt geïnstalleerd kun je nu `silvia` <kbd>tab</kbd> <kbd>tab</kbd> typen, waarna de shell je de verschillende Silvia-componenten laat zien.
 
-
-[Silvia is hier te vinden op Gihub][silvia]
+[Silvia is hier te vinden op Github][silvia]
 
 ## Broncode
 De broncode van alle IRMA-software is te vinden op Github:
@@ -147,3 +159,6 @@ Koen van Ingen
 [pilot-verifier]: https://github.com/credentials/irma_android_verifier/releases/download/0.8-beta0/org.irmacard.pilot.android_verifier-0.8_beta0.apk
 [printkiosk]: https://www.irmacard.org/irma-printer-kiosk/
 [voucher]: https://demo.irmacard.org/tomcat/irma_pilot/production/vouchers/
+[homebrew]: http://brew.sh/
+[apple dev tools]: https://developer.apple.com/downloads/
+[homebrew github]: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Installation.md#installation
