@@ -84,10 +84,10 @@ Daarna gaan we kijken hoe we het gebruik van de IRMA-kaart binnen Thalia kunnen 
 
 Mocht je vragen hebben, neem dan gerust contact met ons op. Wij zijn per e-mail te bereiken op identificaatcie [at] thalia [dot] nu.
 
-Studievereniging Thalia's Identificaatcie
-Thom Wiggers, voorzitter
-Sjors Clabbers
-Wietse Kuipers
-Stijn Meijer
-Bram in 't Zandt
+Studievereniging Thalia's Identificaatcie<br>
+Thom Wiggers, *voorzitter*<br>
+Sjors Clabbers<br>
+Wietse Kuipers<br>
+Stijn Meijer<br>
+Bram in 't Zandt<br>
 Koen van Ingen
