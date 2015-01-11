@@ -46,6 +46,11 @@ Met **Thalia leeftijd** kan je op borrels bewijzen dat je, wat wettelijke leefti
 
 De Identificaatcie zet momenteel een Raspberry Pi in, waarmee je op borrels met je IRMA-kaart kunt bewijzen dat je Thalia-lid bent, als alternatief voor de zojuist geïntroduceerde ledenstickers.
 
+## Hoe update ik mijn Thalia leeftijd-credential?
+Bij de uitgave van IRMA-kaarten hebben wij van ieder lid gecontroleerd of deze ouder dan 18 is. Zo ja, dan kreeg hij/zij het `over18` attribuut. Omdat de IRMA-kaart vanwege privacyredenen geen geboortedatum opslaat, kan dit attribuut niet `automatisch` bijgewerkt worden. De Thalia leeftijd-credential moet namelijk opnieuw uitgegeven worden om het attribuut bij te werken.
+
+Op de lange termijn willen wij via de Thalia-website te mogelijkheid bieden om dit attribuut bij te werken. Helaas is het nog niet zover, waardoor je op dit moment even contact op moet nemen met iemand van onze commissie. Wij zullen er dan voor zorgen dat je een up to date attribuut op je IRMA-kaart ontvangt.
+
 # Kan ik mijn IRMA-kaart zelf ook uitlezen?
 Momenteel is er al software beschikbaar voor verschillende platformen. We zullen hier kort het command line Linux/OSX-programma Silvia en twee Android applicaties bespreken. 
 
