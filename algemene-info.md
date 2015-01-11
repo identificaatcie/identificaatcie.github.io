@@ -130,6 +130,67 @@ Als je Silvia niet systeem-breed installeert, kun je in de map `src/bin/` de bin
 
 Als je Silvia wel systeem-breed hebt geïnstalleerd kun je nu `silvia` <kbd>tab</kbd> <kbd>tab</kbd> typen, waarna de shell je de verschillende Silvia-componenten laat zien.
 
+### Silvia gebruiken
+Silvia bestaat uit een aantal command line applicaties. In deze sectie zullen we kort twee van deze applicaties behandelen, namelijk `silvia_verifier` om credentials mee te verifiëren en `silvia_manager` waarmee je je kaart kunt beheren: je kunt bijvoorbeeld je pincode wijzigen, credentials weggooien en een log terugkijken van wat er allemaal gegevens van je kaart uitgelezen is.
+
+#### Silvia_verifier
+Om credentials te kunnen verifiëren heb je eerst een aantal xml-bestanden nodig waarin de credentials op de goede manier gedefinieerd zijn. Dit is te vinden in een Github-repository, die we eerst moeten clonen:
+{% highlight bash %}
+$ git clone https://github.com/identificaatcie/irma_configuration
+{% endhighlight %}
+
+Daarna gaan we die map in:
+{% highlight bash %}
+$ cd irma_configuration
+{% endhighlight %}
+
+De IRMA-kaarten die Thalia uitgedeeld heeft zijn pilot-kaarten, deze hebben andere public keys ingebouwd waardoor we eerst naar de juiste branch in git moeten switchen:
+{% highlight bash %}
+$ git checkout pilot
+{% endhighlight %}
+
+Als je nu `ls` typt, zul je zien dat er een aantal mapjes met issuers te vinden zijn, waaronder Thalia en Surfnet. Om een credential te kunnen verifiëren maken we gebruik van `silvia_verifier`, met het volgende commando krijg je een korte uitleg hoe dit tooltje werkt:
+{% highlight bash %}
+$ silvia_verifier -h
+{% endhighlight %}
+Als je Silvia niet globaal (dus met `sudo make install`) hebt geïnstalleerd, moet je hier het volledige pad naar de silvia-map gebruiken.
+
+Laten we nu eens proberen het Thalia root-credential te verifiëren:
+{% highlight bash %}
+$ silvia_verifier -k Thalia/ipk.xml -V Thalia/Verifies/rootAll/description.xml -I Thalia/Issues/root/description.xml
+{% endhighlight %}
+Hierbij is -k nodig voor de public key van Thalia, -V voor de verifier specification (hierin staat wat we precies willen verfiëren / revealen) en -I voor de Issue-specificatie waarin staat hoe het credential is opgebouwd. Als alles goed gaat komt er een `Verifying proof... OK` in beeld te staan en kun je uitlezen wat je root-attribuut is. Op dezelfde manier kun je de credentials Thalia Membertype en Thalia Leeftijd uitlezen: je moet alleen de paden naar de xml vervangen.
+
+Ook het Surfnet root-credential staat zoals eerder besproken op je IRMA-kaart. Dit kan uitgelezen worden met het volgende commando:
+{% highlight bash %}
+$ silvia_verifier -k Surfnet/ipk.xml -V Surfnet/Verifies/rootAll/description.xml -I Surfnet/Issues/root/description.xml 
+{% endhighlight %}
+Je zult nu een bewijs zien dat je dit credential hebt en het attribuut (je studentnummer) uit kunnen lezen. Als je `rootAll` in het bovenstaande commando vervangt door `rootNone` zul je enkel een bewijs zien dat je dit credential hebt, maar zal je studentnummer niet getoond worden waarmee dit dus een wat privacyvriendelijkere oplossing is als je enkel aan hoeft te tonen dat je student bent.
+
+#### Silvia_manager
+Met `silvia_manager` kun je je IRMA-kaart 'beheren'. Met de -h optie kun je alle opties vinden. We zullen in deze sectie een aantal voorbeelden geven.
+
+Allereerst de optie om je pincode te wijzigen:
+{% highlight bash %}
+$ silvia_manager -a # om de admin-pin te updaten
+$ silvia_manager -c # om de credential-pin te updaten
+{% endhighlight %}
+
+Om alle credentials te kunnen zien gebruik je:
+{% highlight bash %}
+$ silvia_manager -s
+{% endhighlight %}
+
+Om vervolgens alle attributen uit te lezen van een bepaald credential heb je het ID van deze credential nodig, dat je bij de vorige stap uit heb kunnen lezen. Thalia gebruikt 1337 als ID voor het root credential:
+{% highlight bash %}
+$ silvia_manager -0 1337
+{% endhighlight %}
+
+Tenslotte kun je de log van je IRMA-kaart opvragen met:
+{% highlight bash %}
+$ silvia_manager -l
+{% endhighlight %}
+
 [Silvia is hier te vinden op Github][silvia]
 
 ## Broncode
