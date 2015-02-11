@@ -212,7 +212,6 @@ Thom Wiggers, *voorzitter*<br>
 Sjors Clabbers<br>
 Wietse Kuipers<br>
 Stijn Meijer<br>
-Bram in 't Zandt<br>
 Koen van Ingen
 
 
